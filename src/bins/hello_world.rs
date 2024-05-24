@@ -1,7 +1,7 @@
 use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
 
 async fn function_handler(_event: Request) -> Result<Response<Body>, Error> {
-    let message = format!("Hello, world!");
+    let message = "Hello, world!".to_string();
     let resp = Response::builder()
         .status(200)
         .header("content-type", "text/html")

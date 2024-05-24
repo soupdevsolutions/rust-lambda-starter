@@ -5,7 +5,7 @@ edition = "2021"
 
 [lib]
 name = "rust_lambda_starter"
-path = "src/main.rs"
+path = "src/lib.rs"
 
 [[bin]]
 name = "hello_world"

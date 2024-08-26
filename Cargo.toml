@@ -14,3 +14,4 @@ path = "src/bins/hello_world.rs"
 [dependencies]
 lambda_http = { version = "0.11.0", default-features = false, features = ["apigw_http", "tracing"] }
 tokio = { version = "1", features = ["macros"] }
+tracing-subscriber = "0.3.18"

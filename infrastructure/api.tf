@@ -12,26 +12,9 @@ resource "aws_apigatewayv2_api" "api" {
 }
 
 resource "aws_apigatewayv2_stage" "api_stage" {
-  api_id        = aws_apigatewayv2_api.api.id
-  name          = "$default"
-  deployment_id = aws_apigatewayv2_deployment.api_deployment.id
-}
-
-resource "aws_apigatewayv2_deployment" "api_deployment" {
   api_id      = aws_apigatewayv2_api.api.id
-  description = "rust-lambda-starter API deployment"
-
-  lifecycle {
-    create_before_destroy = true
-  }
-
-  triggers = {
-    redeployment = sha1(
-      jsonencode([
-        file("api_gateway.tf"),
-      ])
-    )
-  }
+  name        = "$default"
+  auto_deploy = true
 }
 
 # HELLO WORLD

@@ -56,6 +56,8 @@ For the infrastructure code, duplicate the code from the `./infrastructure/api.t
 
 ### Deployment
 
+Before being able to deploy anything, you will need to **create the state bucket manually**. Use the bucket name from `./infrastructure/main.tf` or change it, if it's taken.
+
 The recommended way for deploying the project is to use GitHub Actions; however, you can also do it from your local machine.  
 
 For deploying with GitHub Actions, push your project to a new repository, go to the repository's **Settings** -> **Secrets and variables** -> **Actions**, and add secrets for your IAM user credentials:

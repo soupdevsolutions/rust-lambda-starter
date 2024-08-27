@@ -12,7 +12,7 @@ async fn function_handler(_event: Request) -> Result<Response<Body>, Error> {
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-     tracing_subscriber::fmt()
+    tracing_subscriber::fmt()
         .json()
         .with_max_level(tracing::Level::INFO)
         .with_current_span(false)

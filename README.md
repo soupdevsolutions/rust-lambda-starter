@@ -1,5 +1,7 @@
 # rust-lambda-starter
 
+[![CI](https://github.com/soupdevsolutions/rust-lambda-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/soupdevsolutions/rust-lambda-starter/actions/workflows/ci.yml)
+
 This is a template for starting serverless projects with AWS Lambda, Rust, and Tofu.
 
 ## Components

@@ -38,7 +38,25 @@ find . \( -name \*.rs -o -name \*.tf -o -name \*.toml -o -name \*.md -o -name \*
 find . \( -name \*.rs -o -name \*.tf -o -name \*.toml -o -name \*.md -o -name \*.lock \) -exec sed -i '' "s#$TEMPLATE_NAME_SNAKE_CASE#$PROJECT_NAME#g" {} \;
 ```
 
+### Adding functionality
+
+To create new Lambda functions, you can copy the `./src/bins/hello_world.rs` code to a new file in the same directory and modify the `function_handler` body with your desired functionality.  
+Any new functions should be added as binaries in the `Cargo.toml` file, as follows:
+
+```toml
+[[bin]]
+name = "<function_name>"
+path = "src/bins/<function_name>.rs"
+```
+
+Any common code can be added to the library and split into modules just like in any other Cargo project.  
+
+For the infrastructure code, duplicate the code from the `./infrastructure/api.tf`, `./infrastructure/lambdas.tf`, and `./infrastructure/iam.tf` files, modifying the resource names and any fields referring to resource names. Any additional resources can be added to new files (e.g. `./infrastrucutre/s3.tf`).
+
+
 ### Deployment
+
+Before being able to deploy anything, you will need to **create the state bucket manually**. Use the bucket name from `./infrastructure/main.tf` or change it, if it's taken.
 
 The recommended way for deploying the project is to use GitHub Actions; however, you can also do it from your local machine.  
 
